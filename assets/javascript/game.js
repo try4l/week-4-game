@@ -1,7 +1,7 @@
 // button for test - make invisible for production code
  $(document).ready(function() {
     $("button").on("click", function() {
-      console.log("Button clicked " + getRandomNumber (19, 120) );
+      $("#crystals").empty(); 
     })
  })
 
@@ -24,9 +24,9 @@ for (var i = 0; i < crystalArray.length; i++) {
   imageCrystal.attr("src", crystalArray[i][1]);
   imageCrystal.attr("alt", crystalArray[i][0]);
   imageCrystal.attr("data-crystalvalue", getRandomNumber(1, 12));
-  $("#crystals").append(imageCrystal);
+  $("#crystals").append(imageCrystal); 
 };
- 
+
 
 var game = {
   // --
@@ -56,7 +56,16 @@ var game = {
     this.counter = 0;
     this.targetScore = getRandomNumber(19, 120);
 
-   
+    // reset bug fix 
+    $(".crystal-image[alt='blue-gem']").removeAttr("data-crystalvalue");
+    $(".crystal-image[alt='blue-gem']").attr("data-crystalvalue", getRandomNumber(1, 12));
+    $(".crystal-image[alt='green-gem']").removeAttr("data-crystalvalue");
+    $(".crystal-image[alt='green-gem']").attr("data-crystalvalue", getRandomNumber(1, 12));
+    $(".crystal-image[alt='red-gem']").removeAttr("data-crystalvalue");
+    $(".crystal-image[alt='red-gem']").attr("data-crystalvalue", getRandomNumber(1, 12));
+    $(".crystal-image[alt='yellow-gem']").removeAttr("data-crystalvalue");
+    $(".crystal-image[alt='yellow-gem']").attr("data-crystalvalue", getRandomNumber(1, 12));
+
     this.showData();
   },
 
@@ -91,8 +100,6 @@ var game = {
 // Outside of game object... code is loading.. initialize game.
 var updateGameDisplay = function (game) {
     console.log("Update Game Display");
-    console.log ("game.target-score, score, wins, losses: ", game.target-score, game.score, game.wins, game.losses);
-
 
     $("#target-score").html(game.targetScore);
     $("#score").html(game.counter);
@@ -108,14 +115,13 @@ game.initialize();
 
 
 $(".crystal-image").on("click", function() {
-  console.log("click");
-  console.log("imageCrystal: ", imageCrystal);
   game.showData();
   var crystalValue = ($(this).attr("data-crystalvalue"));
   crystalValue = parseInt(crystalValue);
-  console.log("crystalValue: ", crystalValue);
+
   // Call function on game object to update the game logic
   game.processMove(crystalValue);
+  
   // Call function (not on the game object) to update the page elements.  
   // Elements are updated from the properties of the game object
   updateGameDisplay(game); 
