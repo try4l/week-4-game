@@ -10,7 +10,7 @@
 	<title id="game-title">Crystal Collector Game</title>
 	<!-- jQuery -->
 	<!-- <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script> -->
-	<link rel="stylesheet" type="text/css" href="./assets/css/reset.css">
+	<!-- <link rel="stylesheet" type="text/css" href="./assets/css/reset.css"> -->
 	<link rel="stylesheet" type="text/css" href="./assets/css/style.css">
 </head>
 
@@ -24,24 +24,25 @@
   	<p>The value of each crystal is unknown to you until you click on it. And each time you play a new game the crystals get new values.</p>
  </div>
 
-<div id="randomNumber">
-	<h1>Target Score</h1>
+<div>
+	<h2>Target Score</h2>
+	<h3 id="target-score">random number</h3>
 </div>
-
+<hr>
+<div>
+	<h2>Current Score:</h2>
+	<h3 id="score">score</h3>	
+</div>
+<hr>
 <div id="winsAndLoses">
-	<h2>Wins:</h2>
-	<h2>Losses:</h2>	
+	<h4 id="wins">Wins: </h4>
+	<h4 id="losses">Losses: </h4>	
 </div>
 
-<button>test</button>
+<button class="debug">test</button>
 
 <div id="crystals">
-
-</div>
-
-<div id="score">
-	<h2>Your Current Score:</h2>
-	<h1>Score</h1>	
+	<!-- empty div for crystals -->
 </div>
 
 
